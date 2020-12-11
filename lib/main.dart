@@ -111,7 +111,7 @@ class _HomeAppState extends State<HomeApp> {
                       children: <Widget>[
                         TextField(
                           decoration: const InputDecoration(
-                            hintText: 'Action, Crime, Drama etc.',
+                            hintText: 'Action, Crime, Drama hhhhhhhhhetc.',
                           ),
                           onChanged: (String value) {
                             setState(() {
