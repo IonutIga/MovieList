@@ -39,8 +39,8 @@ class _HomeAppState extends State<HomeApp> {
     final Map<String, dynamic> map = jsonDecode(response.body);
     final List<dynamic> movieList = map['data']['movies'];
     if (url.contains('genre')) {
-      if (_lastGenre.compareTo(_genreFilter) != 0)
-        _listOfMovies = <Movie>[];
+      // ignore: always_put_control_body_on_new_line
+      if (_lastGenre.compareTo(_genreFilter) != 0) _listOfMovies = <Movie>[];
       _lastGenre = url.substring(url.indexOf('genre') + 6, url.contains('&') ? url.indexOf('page') - 1 : url.length);
       print('lastGenre: $_lastGenre');
       print('genre: $_genreFilter');
@@ -105,7 +105,7 @@ class _HomeAppState extends State<HomeApp> {
                       children: <Widget>[
                         TextField(
                           decoration: const InputDecoration(
-                            hintText: 'Action, Crime, Dramafffff etc.',
+                            hintText: 'Action, Crime, Drama etc.',
                           ),
                           onChanged: (String value) {
                             setState(() {
