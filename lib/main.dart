@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:http/http.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -42,16 +41,14 @@ class _HomeAppState extends State<HomeApp> {
     if (url.contains('genre')) {
       if (_lastGenre.compareTo(_genreFilter) != 0)
         _listOfMovies = <Movie>[];
-      _lastGenre = url.substring(url.indexOf('genre') + 6,
-          url.contains('&') ? url.indexOf('page') - 1 : url.length);
+      _lastGenre = url.substring(url.indexOf('genre') + 6, url.contains('&') ? url.indexOf('page') - 1 : url.length);
       print('lastGenre: $_lastGenre');
       print('genre: $_genreFilter');
     }
     for (int i = 0; i < movieList.length; i++) {
       final StringBuffer listGenre = StringBuffer();
       for (final String genre in movieList[i]['genres'])
-        listGenre.write(
-            movieList[i]['genres'].indexOf(genre) == 0 ? genre : ', $genre');
+        listGenre.write(movieList[i]['genres'].indexOf(genre) == 0 ? genre : ', $genre');
       _listOfMovies.add(
         Movie(
             title: movieList[i]['title'],
@@ -71,11 +68,8 @@ class _HomeAppState extends State<HomeApp> {
     movies = getResponse(_url);
     _scrollController.addListener(() {
       setState(() {
-        if (_scrollController.position.pixels ==
-            _scrollController.position.maxScrollExtent)
-          _url.contains('?')
-              ? movies = getResponse('$_url&page=${i++}')
-              : movies = getResponse('$_url?page=${i++}');
+        if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent)
+          _url.contains('?') ? movies = getResponse('$_url&page=${i++}') : movies = getResponse('$_url?page=${i++}');
       });
     });
   }
@@ -111,7 +105,7 @@ class _HomeAppState extends State<HomeApp> {
                       children: <Widget>[
                         TextField(
                           decoration: const InputDecoration(
-                            hintText: 'Action, Crime, Drama hhhhhhhhhetc.',
+                            hintText: 'Action, Crime, Drama etc.',
                           ),
                           onChanged: (String value) {
                             setState(() {
@@ -127,8 +121,7 @@ class _HomeAppState extends State<HomeApp> {
                         onPressed: () {
                           setState(() {
                             if (_genreFilter.isNotEmpty) {
-                              _url =
-                                  'https://yts.mx/api/v2/list_movies.json?genre=$_genreFilter';
+                              _url = 'https://yts.mx/api/v2/list_movies.json?genre=$_genreFilter';
                               movies = getResponse(_url);
                               i = 2;
                             }
@@ -196,18 +189,14 @@ class _HomeAppState extends State<HomeApp> {
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                          TextSpan(
-                                              text: snapshot.data[index].year
-                                                  .toString()),
+                                          TextSpan(text: snapshot.data[index].year.toString()),
                                           const TextSpan(
                                             text: '\nGenre(s): ',
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                          TextSpan(
-                                              text: snapshot.data[index].genres
-                                                  .toString()),
+                                          TextSpan(text: snapshot.data[index].genres.toString()),
                                         ],
                                       ),
                                     ),
@@ -223,9 +212,7 @@ class _HomeAppState extends State<HomeApp> {
                                     },
                                     child: Text(
                                       snapshot.data[index].summary,
-                                      overflow: _showMore
-                                          ? TextOverflow.visible
-                                          : TextOverflow.ellipsis,
+                                      overflow: _showMore ? TextOverflow.visible : TextOverflow.ellipsis,
                                     ),
                                   ),
                                 ),
@@ -249,9 +236,7 @@ class _HomeAppState extends State<HomeApp> {
                   },
                   title: Text(snapshot.data[index].title),
                   leading: Image.network(snapshot.data[index].imageSmall),
-                  subtitle: Text(snapshot.data[index].year.toString() +
-                      '\n' +
-                      snapshot.data[index].genres.toString()),
+                  subtitle: Text(snapshot.data[index].year.toString() + '\n' + snapshot.data[index].genres.toString()),
                 );
               },
             );
@@ -271,7 +256,7 @@ class _HomeAppState extends State<HomeApp> {
 
 class Movie {
   Movie(
-    {@required this.title,
+      {@required this.title,
       @required this.imageSmall,
       @required this.imageMedium,
       @required this.year,
@@ -284,6 +269,4 @@ class Movie {
   int year;
   StringBuffer genres;
   String summary;
-
-
 }
