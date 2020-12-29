@@ -1,12 +1,11 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:exemple/actions/get_movies.dart';
-import 'package:exemple/actions/update_genre.dart';
+import 'package:exemple/actions/index.dart';
 import 'package:exemple/containers/is_loading_container.dart';
 import 'package:exemple/containers/movies_container.dart';
 import 'package:exemple/containers/page_container.dart';
 import 'package:exemple/containers/update_genre.dart';
-import 'package:exemple/models/app_state.dart';
-import 'package:exemple/models/movie.dart';
+import 'package:exemple/models/index.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';

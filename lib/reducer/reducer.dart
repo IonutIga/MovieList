@@ -1,23 +1,37 @@
-import 'package:exemple/actions/get_movies.dart';
-import 'package:exemple/actions/update_genre.dart';
-import 'package:exemple/models/app_state.dart';
+import 'package:exemple/actions/index.dart';
+import 'package:exemple/models/index.dart';
 
-AppState reducer(AppState state, dynamic action) {
-  final AppStateBuilder builder = state.toBuilder();
+import 'package:redux/redux.dart';
 
-  if (action is GetMoviesStart) {
-    builder.isLoading = true;
-  } else if (action is GetMoviesSuccessful) {
-    builder.movies.addAll(action.movies);
-    builder.isLoading = false;
-    builder.nextPage++;
-  } else if (action is GetMoviesError) {
-    builder.isLoading = false;
-  } else if (action is UpdateGenreStart) {
-    builder
+Reducer<AppState> reducer = combineReducers<AppState>(<Reducer<AppState>>[
+  TypedReducer<AppState, GetMoviesStart>(_getMoviesStart),
+  TypedReducer<AppState, GetMoviesSuccessful>(_getMoviesSuccessful),
+  TypedReducer<AppState, GetMoviesError>(_getMoviesError),
+  TypedReducer<AppState, UpdateGenreStart>(_updateGenreStart),
+]);
+
+AppState _getMoviesStart(AppState state, GetMoviesStart action) {
+  return state.rebuild((AppStateBuilder b) => b.isLoading = true);
+}
+
+AppState _getMoviesSuccessful(AppState state, GetMoviesSuccessful action) {
+  return state.rebuild(
+    (AppStateBuilder b) => b
+      ..movies.addAll(action.movies)
+      ..isLoading = false
+      ..nextPage = state.nextPage + 1,
+  );
+}
+
+AppState _getMoviesError(AppState state, GetMoviesError action) {
+  return state.rebuild((AppStateBuilder b) => b..isLoading = false);
+}
+
+AppState _updateGenreStart(AppState state, UpdateGenreStart action) {
+  return state.rebuild(
+    (AppStateBuilder b) => b
       ..movies.clear()
-      ..nextPage = 1
-      ..genre = action.genre;
-  }
-  return builder.build();
+      ..genre = state.genre
+      ..nextPage = 1,
+  );
 }

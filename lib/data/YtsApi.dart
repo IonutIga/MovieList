@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
-import 'package:exemple/models/movie.dart';
+import 'package:exemple/models/index.dart';
 
 class YtsApi {
   const YtsApi({@required Client client})

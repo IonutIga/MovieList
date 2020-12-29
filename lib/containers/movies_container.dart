@@ -1,6 +1,5 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:exemple/models/app_state.dart';
-import 'package:exemple/models/movie.dart';
+import 'package:exemple/models/index.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:meta/meta.dart';

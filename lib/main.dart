@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:http/http.dart';
 import 'package:redux/redux.dart';
-import 'actions/get_movies.dart';
+import 'actions/index.dart';
 import 'data/YtsApi.dart';
 import 'middleware/app_middleware.dart';
-import 'models/app_state.dart';
+import 'models/index.dart';
 
 void main() {
   final Client client = Client();
