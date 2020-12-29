@@ -22,11 +22,10 @@ class AppMiddleware {
     next(action);
     if (action is GetMoviesStart) {
       try {
-        final List<Movie> movies = await _ytsApi.getMovies(store.state.nextPage,store.state.genre);
+        final List<Movie> movies = await _ytsApi.getMovies(store.state.nextPage, store.state.genre);
 
         final GetMoviesSuccessful successful = GetMoviesSuccessful(movies);
         store.dispatch(successful);
-
       } catch (e) {
         final GetMoviesError error = GetMoviesError(e);
         store.dispatch(error);

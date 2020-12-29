@@ -10,7 +10,6 @@ import 'package:exemple/models/movie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux/redux.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
@@ -41,7 +40,7 @@ class HomePage extends StatelessWidget {
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: TextField(
-                                decoration:  InputDecoration(
+                                decoration: InputDecoration(
                                   hintText: (genre != null) ? genre : 'Insert genre here...',
                                 ),
                                 onSubmitted: (String value) {

@@ -7,11 +7,9 @@ import 'movie.dart';
 
 part 'serializers.g.dart';
 
-
-
 @SerializersFor(<Type>[
   Movie,
 ])
 Serializers serializers = (_$serializers.toBuilder() //
-  ..addPlugin(StandardJsonPlugin()))
+      ..addPlugin(StandardJsonPlugin()))
     .build();

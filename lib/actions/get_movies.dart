@@ -1,6 +1,8 @@
 library get_movies;
+
 import 'package:exemple/models/movie.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'get_movies.freezed.dart';
 
 @freezed

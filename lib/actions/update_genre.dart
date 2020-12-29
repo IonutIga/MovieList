@@ -1,5 +1,7 @@
 library update_genre;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'update_genre.freezed.dart';
 
 @freezed

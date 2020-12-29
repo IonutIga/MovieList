@@ -17,7 +17,7 @@ AppState reducer(AppState state, dynamic action) {
     builder
       ..movies.clear()
       ..nextPage = 1
-        ..genre = action.genre;
+      ..genre = action.genre;
   }
   return builder.build();
 }

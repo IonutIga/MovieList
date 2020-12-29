@@ -1,4 +1,3 @@
-
 library movie;
 
 import 'package:built_collection/built_collection.dart';
@@ -8,14 +7,15 @@ import 'package:exemple/models/serializers.dart';
 
 part 'movie.g.dart';
 
-
 abstract class Movie implements Built<Movie, MovieBuilder> {
-
   factory Movie([void Function(MovieBuilder) updates]) = _$Movie;
+
   Movie._();
+
   factory Movie.fromJson(dynamic json) {
     return serializers.deserializeWith(serializer, json);
   }
+
   String get title;
 
   int get year;
