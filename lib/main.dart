@@ -1,14 +1,10 @@
-import 'dart:convert';
-import 'dart:io';
 import 'package:exemple/presentation/home_page.dart';
 import 'package:exemple/reducer/reducer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:http/http.dart';
 import 'package:redux/redux.dart';
-
 import 'actions/get_movies.dart';
 import 'data/YtsApi.dart';
 import 'middleware/app_middleware.dart';
@@ -45,4 +41,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
