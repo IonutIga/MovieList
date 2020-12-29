@@ -12,7 +12,8 @@ class YtsApi {
 
   Future<List<Movie>> getMovies(int nextPage, String genre) async {
     String url = 'https://yts.mx/api/v2/list_movies.json?limit=3&page=$nextPage';
-    if (genre != null) url = 'https://yts.mx/api/v2/list_movies.json?limit=3&page=$nextPage&genre=$genre';
+    if (genre != null)
+      url = 'https://yts.mx/api/v2/list_movies.json?limit=3&page=$nextPage&genre=$genre';
     print(url);
     final Response response = await _client.get(url);
     final String body = response.body;
