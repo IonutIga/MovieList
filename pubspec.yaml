@@ -22,6 +22,8 @@ dependencies:
   built_collection: ^4.3.2
   redux: ^4.0.0+3
   flutter_redux: ^0.7.0
+  rxdart: any
+  redux_epics: ^0.14.0
 dev_dependencies:
   built_value_generator: ^7.1.0
   analyzer: any
